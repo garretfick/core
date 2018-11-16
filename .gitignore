@@ -4,4 +4,4 @@ __pycache__
 solar-taxonomy
 
 # Build files from docs
-d0cs/build/
+docs/build/
