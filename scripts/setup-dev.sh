@@ -14,12 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-EXITVAL=0
-
-export PYTHONPATH=`pwd`/oblib
-python scripts/cli/cli.py $1 $2 $3 $4 $5 || {
-    EXITVAL=$?
-}
-
-exit $EXITVAL
+git clone https://github.com/SunSpecOrangeButton/solar-taxonomy.git
+mkdir solar-taxonomy/external
+curl http://xbrl.fasb.org/us-gaap/2017/elts/us-gaap-2017-01-31.xsd > solar-taxonomy/external/us-gaap-2017-01-31.xsd
+curl https://xbrl.sec.gov/dei/2018/dei-2018-01-31.xsd > solar-taxonomy/external/dei-2018-01-31.xsd
+curl https://www.xbrl.org/utr/utr.xml > solar-taxonomy/external/utr.xml

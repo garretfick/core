@@ -1,5 +1,7 @@
+# Copyright 2018 Wells Fargo
+
 # Licensed under the Apache License, Version 2.0 (the "License");
-# pyou may not use this file except in compliance with the License.
+# you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 
 #    http://www.apache.org/licenses/LICENSE-2.0
@@ -25,5 +27,4 @@ def validate(inp):
     """
     Validates that a particular string is either a valid UUID or not a valid UUID.
     """
-    m = re.match(REG_EX, inp)
-    return m is not None and m.group(0) != ""
+    return re.search(REG_EX, inp, re.IGNORECASE) is not None

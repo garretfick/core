@@ -1,5 +1,3 @@
-#! /bin/bash
-
 # Copyright 2018 Wells Fargo
 
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +12,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import identifier
+import data_model
+import taxonomy
+import taxonomy_semantic
+import taxonomy_types
+import taxonomy_units
+import taxonomy_misc
+import validator
 
-EXITVAL=0
-
-export PYTHONPATH=`pwd`/oblib
-python scripts/cli/cli.py $1 $2 $3 $4 $5 || {
-    EXITVAL=$?
-}
-
-exit $EXITVAL
+__all__ = ['identifier', 'data_model', 'taxonomy', 'taxonomy_semantic', 'taxonomy_types', 'taxonomy_units',
+           'taxonomy_misc', 'validator']

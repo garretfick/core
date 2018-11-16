@@ -14,12 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-EXITVAL=0
+# TODO: Usage of ../solar-taxonomy works on the first run of the compiled
+# cli but does not clean up at the end of the run.  Subsequent runs 
+# produce warnings but still function.  In order to correct the behavior
+# remove .. from the path.  This will require coding changes to find the
+# correct placement of solar-taxonomy.
 
 export PYTHONPATH=`pwd`/oblib
-python scripts/cli/cli.py $1 $2 $3 $4 $5 || {
-    EXITVAL=$?
-}
-
-exit $EXITVAL
+pyinstaller --add-data ../solar-taxonomy:../solar-taxonomy --clean --onefile scripts/cli/cli.py

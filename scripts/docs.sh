@@ -14,12 +14,33 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
-EXITVAL=0
+# This uses pdoc to create text based documentation.  It is very basic
+# and it likely  could be replaced with an HTML based documentation
+# generator.  To run this script "pip install pdoc" must be issued first.
 
 export PYTHONPATH=`pwd`/oblib
-python scripts/cli/cli.py $1 $2 $3 $4 $5 || {
-    EXITVAL=$?
-}
 
-exit $EXITVAL
+# pdoc --html --overwrite --html-dir=out src
+# cp -r out/oblib docs/oblib
+
+pdoc /oblib/identifier.py
+echo
+echo
+
+pdoc /oblib/taxonomy.py
+echo
+echo
+
+pdoc /oblib/taxonomy_semantic.py
+echo
+echo
+
+pdoc /oblib/taxonomy_types.py
+echo
+echo
+
+pdoc /oblib/taxonomy_units.py
+echo
+echo
+
+pdoc /oblib/taxonomy_misc.py
